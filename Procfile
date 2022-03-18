@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.mdsdc.celebratingmilestonesshoppingbusinessservice.CelebratingMilestonesShoppingBusinessServiceApplication
+web: java -jar target/celebrating-milestones-shopping-business-service-0.0.1-SNAPSHOT.jar
