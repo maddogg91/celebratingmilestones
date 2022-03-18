@@ -25,6 +25,7 @@ import javax.mail.internet.MimeMultipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,8 +46,10 @@ public class ShoppingController {
 	
 	@Autowired
 	private JavaMailSender emailSender;
+	
 	private Logger logger= Logger.getLogger(ShoppingController.class.getName());
 	
+	@CrossOrigin
 	@PostMapping("/v1/createCart")
 	public Cart createCart(@RequestBody String ip) {
 		
@@ -63,7 +66,7 @@ public class ShoppingController {
 		
 	}
 	
-	
+	@CrossOrigin
 	@PostMapping("/v1/checkOut")
 	public List<CartItem> checkOut(@RequestBody Shopper shopper) throws MessagingException {
 		Cart cart= createCart(shopper.getIp());
@@ -136,7 +139,7 @@ public class ShoppingController {
         Transport.send(msg);
 		
 	}
-	
+	@CrossOrigin
 	@PostMapping("/v1/updateQuantity")
 	public void updateQuantity(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
@@ -149,7 +152,7 @@ public class ShoppingController {
 			}
 		}
 	}
-	
+	@CrossOrigin
 	@PostMapping("/v1/removeItem")
 	public String removeItem(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
@@ -166,7 +169,7 @@ public class ShoppingController {
 		}
 		return "no item removed";
 	}
-	
+	@CrossOrigin
 	@PostMapping("/v1/removeAll")
 	public void removeAll(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
@@ -174,6 +177,7 @@ public class ShoppingController {
 			repo.deleteById(request.getIp());
 			}
 	}
+	@CrossOrigin
 	@PostMapping("/v1/addItem")
 	public void addItem(@RequestBody NewCartRequest request) {
 		if(request.getIp()!= null) {
