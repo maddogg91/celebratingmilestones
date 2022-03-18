@@ -134,7 +134,7 @@ public class ShoppingController {
 	@PostMapping("/v1/updateQuantity")
 	public void updateQuantity(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
-		if(!userCart.isEmpty()) {
+		if(userCart.isPresent()) {
 			Cart newCart= userCart.get();
 			for(CartItem item : newCart.getItems()) {
 				if(request.getItem().getItemId() == item.getItemId()) {
@@ -147,7 +147,7 @@ public class ShoppingController {
 	@PostMapping("/v1/removeItem")
 	public String removeItem(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
-		if(!userCart.isEmpty()) {
+		if(userCart.isPresent()) {
 			Cart newCart= userCart.get();
 			for(CartItem item : newCart.getItems()) {
 				if(request.getItem().getItemId() == item.getItemId()) {
@@ -164,7 +164,7 @@ public class ShoppingController {
 	@PostMapping("/v1/removeAll")
 	public void removeAll(@RequestBody NewCartRequest request) {
 		Optional<Cart> userCart= repo.findById(request.getIp());
-		if(!userCart.isEmpty()) {
+		if(userCart.isPresent()) {
 			repo.deleteById(request.getIp());
 			}
 	}
@@ -175,7 +175,7 @@ public class ShoppingController {
 				createCart(request.getIp());
 			}
 			Optional<Cart> userCart= repo.findById(request.getIp());
-			if(!userCart.isEmpty()) {
+			if(userCart.isPresent()) {
 				Cart newCart= userCart.get();
 				
 				newCart.getItems().stream().forEach(item->{
@@ -192,7 +192,7 @@ public class ShoppingController {
 	
 	public boolean isNewCart(String ip) {
 		Optional<Cart> cart= repo.findById(ip);
-		if(!cart.isEmpty()) {
+		if(cart.isPresent()) {
 			return false;
 		}
 		else {
