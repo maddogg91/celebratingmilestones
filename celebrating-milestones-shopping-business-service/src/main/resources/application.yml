@@ -1,0 +1,16 @@
+spring:
+ application:
+  name: celebrating-milestones-shopping-business-service
+ profiles: default
+ data:
+  mongodb:
+    uri: mongodb+srv://celebratingmilestones:5jSCd3Vuvj3Vruuz@cluster0.4grai.mongodb.net/celebratingmilestones?authSource=admin&replicaSet=atlas-5d8wze-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
+# mail:
+#  host: smtp.gmail.com
+#  port: 587
+#  username: ms.celebratingmilestones@gmail.com
+#  password: ForTrafficOnly007
+#  smtp:
+#   auth: true
+#   starttls:
+#    enable: true
