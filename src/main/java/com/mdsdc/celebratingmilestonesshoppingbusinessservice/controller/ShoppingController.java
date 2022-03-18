@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -44,17 +45,22 @@ public class ShoppingController {
 	
 	@Autowired
 	private JavaMailSender emailSender;
+	private Logger logger= Logger.getLogger(ShoppingController.class.getName());
 	
 	@PostMapping("/v1/createCart")
 	public Cart createCart(@RequestBody String ip) {
+		
 		if(isNewCart(ip)) {
 			List<CartItem> items = new ArrayList<>();
 			Cart newCart= new Cart(ip, LocalDateTime.now(), items);
 			repo.save(newCart);
+			logger.info("Saved");
 			return newCart;
 		}
 		Optional<Cart> userCart= repo.findById(ip);
+		logger.info(userCart.get().toString());
 		return userCart.get();
+		
 	}
 	
 	
