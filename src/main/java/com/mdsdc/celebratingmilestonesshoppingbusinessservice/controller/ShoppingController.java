@@ -182,7 +182,7 @@ public class ShoppingController {
 	@CrossOrigin
 	@PostMapping("/v1/addItem")
 	public void addItem(@RequestBody NewCartRequest request) {
-		newitem= true;
+		newItem= true;
 		if(request.getIp()!= null) {
 			if(isNewCart(request.getIp())){
 				createCart(request.getIp());
