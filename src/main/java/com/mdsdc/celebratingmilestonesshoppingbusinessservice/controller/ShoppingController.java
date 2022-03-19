@@ -47,6 +47,8 @@ public class ShoppingController {
 	@Autowired
 	private JavaMailSender emailSender;
 	
+	private boolean newItem= true;
+	
 	private Logger logger= Logger.getLogger(ShoppingController.class.getName());
 	
 	@CrossOrigin
@@ -180,22 +182,27 @@ public class ShoppingController {
 	@CrossOrigin
 	@PostMapping("/v1/addItem")
 	public void addItem(@RequestBody NewCartRequest request) {
+		
 		if(request.getIp()!= null) {
 			if(isNewCart(request.getIp())){
 				createCart(request.getIp());
 			}
 			Optional<Cart> userCart= repo.findById(request.getIp());
 			if(userCart.isPresent()) {
+				
 				Cart newCart= userCart.get();
 				
 				newCart.getItems().stream().forEach(item->{
 					if(item.getItemId()== request.getItem().getItemId()) {
 						item.setQuantity(item.getQuantity()+request.getItem().getQuantity());
 						repo.save(newCart);
+						 newItem=false;
 					}
 				});
-				newCart.getItems().add(request.getItem());
-				repo.save(newCart);
+				if(newItem) {
+					newCart.getItems().add(request.getItem());
+					repo.save(newCart);
+				}
 			}
 		}
 	}
