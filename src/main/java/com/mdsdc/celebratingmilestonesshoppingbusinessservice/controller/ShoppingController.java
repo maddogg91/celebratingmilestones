@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.Random;
 import java.util.logging.Logger;
 
 import javax.activation.DataHandler;
@@ -26,6 +27,7 @@ import javax.mail.internet.MimeMultipart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,6 +68,18 @@ public class ShoppingController {
 		logger.info(userCart.get().toString());
 		return userCart.get();
 		
+	}
+	@CrossOrigin
+	@GetMapping("/v1/sequence")
+	public String createSequence() {
+		Random rand = new Random();
+		int num= rand.nextInt(11111111, 99999999);
+		Optional <Cart> sequence= repo.findById(String.valueOf(num));
+		while(sequence.isEmpty()) {
+			num= rand.nextInt(11111111, 99999999);
+			sequence= repo.findById(String.valueOf(num));
+		}
+		return String.valueOf(num);
 	}
 	
 	@CrossOrigin
