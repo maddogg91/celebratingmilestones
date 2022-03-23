@@ -72,14 +72,21 @@ public class ShoppingController {
 	@CrossOrigin
 	@GetMapping("/v1/sequence")
 	public String createSequence() {
-		Random rand = new Random();
-		int num= rand.nextInt(11111111, 99999999);
+	
+		int num= getRandomNumberInRange(11111111, 99999999);
 		Optional <Cart> sequence= repo.findById(String.valueOf(num));
-		while(sequence.isEmpty()) {
-			num= rand.nextInt(11111111, 99999999);
+		while(!sequence.isPresent()) {
+			num= getRandomNumberInRange(11111111, 99999999);
 			sequence= repo.findById(String.valueOf(num));
 		}
 		return String.valueOf(num);
+	}
+	
+	private static int getRandomNumberInRange(int min, int max) {
+		
+		Random r = new Random();
+		return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
+		
 	}
 	
 	@CrossOrigin
