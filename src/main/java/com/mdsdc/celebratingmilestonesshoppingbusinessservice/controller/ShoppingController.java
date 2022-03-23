@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mdsdc.celebratingmilestonesshoppingbusinessservice.models.Cart;
 import com.mdsdc.celebratingmilestonesshoppingbusinessservice.models.CartItem;
 import com.mdsdc.celebratingmilestonesshoppingbusinessservice.models.NewCartRequest;
+import com.mdsdc.celebratingmilestonesshoppingbusinessservice.models.Sequence;
 import com.mdsdc.celebratingmilestonesshoppingbusinessservice.models.Shopper;
 import com.mdsdc.celebratingmilestonesshoppingbusinessservice.repository.ShoppingRepo;
 
@@ -71,7 +72,7 @@ public class ShoppingController {
 	}
 	@CrossOrigin
 	@GetMapping("/v1/sequence")
-	public Object createSequence() {
+	public Sequence createSequence() {
 	
 		int num= getRandomNumberInRange(11111111, 99999999);
 		Optional <Cart> sequence= repo.findById(String.valueOf(num));
@@ -79,7 +80,9 @@ public class ShoppingController {
 			num= getRandomNumberInRange(11111111, 99999999);
 			sequence= repo.findById(String.valueOf(num));
 		}
-		return String.valueOf(num);
+		Sequence seq= new Sequence();
+		seq.setSeq(String.valueOf(num));
+		return seq;
 	}
 	
 	private static int getRandomNumberInRange(int min, int max) {
