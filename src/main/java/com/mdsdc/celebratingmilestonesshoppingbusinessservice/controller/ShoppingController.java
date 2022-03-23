@@ -71,7 +71,7 @@ public class ShoppingController {
 	}
 	@CrossOrigin
 	@GetMapping("/v1/sequence")
-	public String createSequence() {
+	public Object createSequence() {
 	
 		int num= getRandomNumberInRange(11111111, 99999999);
 		Optional <Cart> sequence= repo.findById(String.valueOf(num));
