@@ -75,7 +75,7 @@ public class ShoppingController {
 	
 		int num= getRandomNumberInRange(11111111, 99999999);
 		Optional <Cart> sequence= repo.findById(String.valueOf(num));
-		while(!sequence.isPresent()) {
+		while(sequence.isPresent()) {
 			num= getRandomNumberInRange(11111111, 99999999);
 			sequence= repo.findById(String.valueOf(num));
 		}
