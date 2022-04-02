@@ -185,10 +185,13 @@ public class ShoppingController {
 		if(userCart.isPresent()) {
 			Cart newCart= userCart.get();
 			for(CartItem item : newCart.getItems()) {
-				if(request.getItem().getItemId() == item.getItemId()) {
-					newCart.getItems().remove(item);
+				if(item.getQuantity > 0){
+						item.setQuantity(item.getQuantity-1);
+					}
+					else{
+						newCart.getItems().remove(item);
+					}
 					break;
-				}
 			}
 			repo.save(newCart);
 			return "new item removed successfully";
