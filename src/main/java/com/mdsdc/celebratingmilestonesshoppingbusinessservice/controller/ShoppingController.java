@@ -173,7 +173,7 @@ public class ShoppingController {
 			Cart newCart= userCart.get();
 			for(CartItem item : newCart.getItems()) {
 				if(request.getItem().getItemId() == item.getItemId()) {
-					item.setQuantity(request.getItem().getQuantity());
+					item.setQuantity(item.getQuantity()+request.getItem().getQuantity());
 				}
 			}
 		}
