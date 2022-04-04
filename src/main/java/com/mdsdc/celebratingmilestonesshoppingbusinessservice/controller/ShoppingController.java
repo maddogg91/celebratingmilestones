@@ -176,6 +176,7 @@ public class ShoppingController {
 					item.setQuantity(item.getQuantity()+request.getItem().getQuantity());
 				}
 			}
+			repo.save(newCart);
 		}
 	}
 	@CrossOrigin
