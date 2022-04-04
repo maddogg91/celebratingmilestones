@@ -185,7 +185,7 @@ public class ShoppingController {
 		if(userCart.isPresent()) {
 			Cart newCart= userCart.get();
 			for(CartItem item : newCart.getItems()) {
-				if(item.getQuantity() > 0){
+				if(item.getQuantity() > 1){
 						item.setQuantity(item.getQuantity()-1);
 					}
 					else{
