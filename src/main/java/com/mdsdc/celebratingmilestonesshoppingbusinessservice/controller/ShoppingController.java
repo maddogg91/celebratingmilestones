@@ -104,7 +104,7 @@ public class ShoppingController {
 		// creates a new session with an authenticator
         Authenticator auth = new Authenticator() {
             public PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("ms.celebratingmilestones@gmail.com", "ForTrafficOnly007");
+                return new PasswordAuthentication("admin@celebratingmilestones.com", "ZmoXie715$");
             }
         };
         Session session = Session.getInstance(properties, auth);
