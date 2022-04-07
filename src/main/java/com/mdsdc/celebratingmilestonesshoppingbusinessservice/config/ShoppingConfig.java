@@ -15,7 +15,7 @@ public class ShoppingConfig{
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
 		mailSender.setUsername("ms.celebratingmilestones@gmail.com");
-		mailSender.setPassword("Delete007$$$");
+		mailSender.setPassword("sygyhoyciuvxffdz");
 		Properties properties= new Properties();
 		properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "true");
