@@ -14,8 +14,8 @@ public class ShoppingConfig{
 		JavaMailSenderImpl mailSender= new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
-		mailSender.setUsername("ms.celebratingmilestones@gmail.com");
-		mailSender.setPassword("ForTrafficOnly007");
+		mailSender.setUsername("admin@celebratingmilestones.com");
+		mailSender.setPassword("ZmoXie715$");
 		Properties properties= new Properties();
 		properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "true");
