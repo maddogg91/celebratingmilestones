@@ -12,7 +12,7 @@ public class ShoppingConfig{
 	@Bean
 	public JavaMailSender getJavaSender() {
 		JavaMailSenderImpl mailSender= new JavaMailSenderImpl();
-		mailSender.setHost("smtp.gmail.com");
+		mailSender.setHost("email-smtp.us-east-1.amazonaws.com");
 		mailSender.setPort(587);
 		mailSender.setUsername("admin@celebratingmilestones.com");
 		mailSender.setPassword("ZmoXie715$");
