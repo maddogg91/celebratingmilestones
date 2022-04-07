@@ -14,8 +14,8 @@ public class ShoppingConfig{
 		JavaMailSenderImpl mailSender= new JavaMailSenderImpl();
 		mailSender.setHost("email-smtp.us-east-1.amazonaws.com");
 		mailSender.setPort(587);
-		mailSender.setUsername("admin@celebratingmilestones.com");
-		mailSender.setPassword("ZmoXie715$");
+		mailSender.setUsername("AKIA2YXRCE5BYNWSSTYG");
+		mailSender.setPassword("BEtJ4AMfmcWhG1hW/JF0xr7Lg4StdpGtCeAjtWAwrWKu");
 		Properties properties= new Properties();
 		properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "true");
