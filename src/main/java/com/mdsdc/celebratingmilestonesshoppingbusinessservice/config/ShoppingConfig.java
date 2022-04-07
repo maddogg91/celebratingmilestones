@@ -12,10 +12,10 @@ public class ShoppingConfig{
 	@Bean
 	public JavaMailSender getJavaSender() {
 		JavaMailSenderImpl mailSender= new JavaMailSenderImpl();
-		mailSender.setHost("email-smtp.us-east-1.amazonaws.com");
+		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
-		mailSender.setUsername("AKIA2YXRCE5BYNWSSTYG");
-		mailSender.setPassword("BEtJ4AMfmcWhG1hW/JF0xr7Lg4StdpGtCeAjtWAwrWKu");
+		mailSender.setUsername("ms.celebratingmilestones@gmail.com");
+		mailSender.setPassword("Delete007$$$");
 		Properties properties= new Properties();
 		properties.setProperty("mail.transport.protocol", "smtp");
         properties.setProperty("mail.smtp.auth", "true");
