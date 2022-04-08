@@ -17,4 +17,5 @@ public class Shopper{
 	private String state;
 	private int zip;
 	private String date;
+	private String phone;
 }
