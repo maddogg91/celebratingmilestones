@@ -115,7 +115,7 @@ public class ShoppingController {
         String header= "<html>";
         
         String customer= shopper.getFirstName() + " " + shopper.getLastName();
-        String messageText= header+ ("Caroline,<br><br>Shopper Information:<br>Email: "+ shopper.getEmail() + "<br>Customer Name: "+ shopper.getFirstName() + 
+        String messageText= header+ ("Caroline,<br><br>Shopper Information:<br>Email: "+ shopper.getEmail()+ "<br>Phone Number:" + shopper.getPhone() + "<br>Customer Name: "+ shopper.getFirstName() + 
 				     " " + shopper.getLastName() + "<br>Event Address: "+ shopper.getStreet() + " " + shopper.getCity() + ","+ shopper.getState()
 				     + " " + shopper.getZip() +".<br><br> The following items were requested by " + shopper.getFirstName() + " " + shopper.getLastName() + 
                 " for the through dates listed: " + shopper.getDate() + "<br><br><br>");
