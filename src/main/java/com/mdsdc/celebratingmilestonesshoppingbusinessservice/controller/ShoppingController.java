@@ -115,9 +115,11 @@ public class ShoppingController {
         String header= "<html>";
         
         String customer= shopper.getFirstName() + " " + shopper.getLastName();
-        String messageText= header+ ("Caroline,<br><br>The following items were requested by " + shopper.getFirstName() + " " + shopper.getLastName() + 
+        String messageText= header+ ("Caroline,<br><br>Shopper Information:<br>Email: "+ shopper.getEmail() + "<br>Customer Name: "+ shopper.getFirstName() + 
+				     " " + shopper.getLastName() + "<br>Event Address: "+ shopper.getStreet() + " " + shopper.getCity() + ","+ shopper.getState()
+				     + " " + shopper.getZip() +".<br><br> The following items were requested by " + shopper.getFirstName() + " " + shopper.getLastName() + 
                 " for the through dates listed: " + shopper.getDate() + "<br><br><br>");
-        String toMessageText= header+ (shopper.getFirstName() +",<br><br>You have requested the following items for the through dates listed: " + shopper.getDate() +  "<br><br><br>");
+        String toMessageText= header+ (shopper.getFirstName() +",<br><br>Thank you for requesting a quote through Celebrating Milestones. If you have any questions please contact us at celebratingmilestonesllc@gmail.com. <br>You have requested the following items for the through dates listed: " + shopper.getDate() +  "<br><br><br>");
         sendQuoteToCustomer(msg, "celebratingmilestonesllc@gmail.com", cart, "Order Request " + customer, messageText);
         msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress("noreply@celebratingmilestones.com"));
